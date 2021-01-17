@@ -89,7 +89,7 @@ class AuthController extends Controller
             'response_code' => 99,
             'error' => false,
             'messsage' => 'success',
-            'result' => auth()->user()
+            'result' => auth()->payload()
         ], 200);
     }
 

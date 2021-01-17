@@ -12,7 +12,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Model implements JWTSubject, AuthenticatableContract
 {
-      use Authenticatable;
+    use Authenticatable, Authorizable;
     // use Authenticatable, Authorizable;
     // use Notifiable;
     /**
@@ -50,6 +50,9 @@ class User extends Model implements JWTSubject, AuthenticatableContract
      */
     public function getJWTCustomClaims()
     {
-        return [];
+        return [
+            "nada" => $this->name,
+            "email" => $this->email
+        ];
     }
 }
